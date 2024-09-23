@@ -1,17 +1,16 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import {Route, Routes } from 'react-router-dom';
 import WeatherDetails from "./pages/weather-details/WeatherDetails";
-import Home from "./pages/home/Home";
+import Home from "./pages/home/components/Home";
+import './styles/index.scss'
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
+    <div className='App'>
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/details" element={<WeatherDetails />} />
         </Routes>
-      </BrowserRouter>
     </div>
   );
 }

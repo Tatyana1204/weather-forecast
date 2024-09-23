@@ -1,11 +1,17 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import s from './WeatherDetails.module.scss'
+import Header from "./components/header/Header";
+import Search from "./components/search/Search";
+import WeatherBox from "./components/weatherBox/WeatherBox";
+interface Props {
 
-const WeatherDetails = () => {
+}
+const WeatherDetails = (props:Props) => {
     return (
-        <div>
-            weather
-            <Link to='/'>обратно</Link>
+        <div className={s.weatherDetails}>
+            <Header/>
+            <Search/>
+            <WeatherBox/>
         </div>
 
     );

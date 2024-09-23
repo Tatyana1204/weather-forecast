@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "SF Pro Text";
+  src:
+          url('../../fonts/SFProText/SFProText-Light.ttf') format("ttf"),
+          url('../../fonts/SFProText/SFProText-Bold.ttf') format("ttf")
+}
+
+.weatherDetails {
+  font-family: 'SF Pro Text', sans-serif;
+  color: rgba(217, 253, 255, 0.95);
+  padding: 0 16px;
+  background: radial-gradient(73.19% 111.55% at 93.07% 74.31%, rgba(69, 39, 139, 0.90) 0%, rgba(46, 51, 90, 0.90) 100%);
+}
+
