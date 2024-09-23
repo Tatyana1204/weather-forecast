@@ -1,0 +1,13 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+  height: 54px;
+  align-items: center;
+}
+.header span{
+  color: white;
+  font-size: 28px;
+}
+.headerLink{
+  text-decoration: none;
+}
