@@ -9,7 +9,7 @@ const WeatherItem = () => {
             <div className={s.weatherItem}>
                 <div className={s.weatherItemData}>
                     <div className={s.weatherItemTop}>
-                        <span className={s.textTemp}>19</span>
+                        <span className={s.textTemp}>19&deg;</span>
                         <img src={weatherImg} alt="cart"/>
                     </div>
                     <div className={s.weatherItemBottom}>

@@ -5,6 +5,7 @@ import Home from "./pages/home/components/Home";
 import './styles/index.scss'
 
 function App() {
+
   return (
     <div className='App'>
         <Routes>
