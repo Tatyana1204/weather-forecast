@@ -1,24 +1,22 @@
 import React, {useEffect} from 'react';
 import logo from '../../../../image/search-icon.svg'
 import s from './Search.module.scss'
-import axios from "axios";
-interface Props {
+import {useAppDispatch} from "../../../../hooks/hook";
+import {getAPICities, getCity} from "../../../../store/weatherCitiesSlice";
 
-}
-
-const Search = (props:Props) => {
-    const [cities, setCities] = React.useState('London');
-   const [weather, setWeather] = React.useState([]);
-
+const Search = () => {
+    const [cities, setCities] = React.useState<string>('');
+    const dispatch = useAppDispatch();
     useEffect(()=> {
         const Debounce = setTimeout(()=>{
-            axios
-                .get(`http://api.weatherapi.com/v1/forecast.json?key=073e7ffc05f44adfb2f113852243006&q=${cities}&days=1&aqi=yes&alerts=yes`)
-                .then(data=>{
-                    console.log(data.data);
-                    setWeather(data.data);
-                })
-        }, 1000);
+            if(cities.length > 0){
+                // console.log(cities)
+                dispatch(getCity(cities))
+            }
+            if(cities.length === 0){
+                dispatch(getAPICities())
+            }
+       }, 1000);
         return () => clearTimeout(Debounce)
     }, [cities])
     return (
