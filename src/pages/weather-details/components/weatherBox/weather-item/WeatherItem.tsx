@@ -24,6 +24,9 @@ const WeatherItem = (props: WeatherItemProps) => {
         case 'Пасмурно':
             imageUrl =  partlyImg;
             break;
+        case 'Дымка':
+            imageUrl =  partlyImg;
+            break;
         case 'Переменная облачность':
             imageUrl =  partlyImg;
             break;

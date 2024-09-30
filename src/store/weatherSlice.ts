@@ -7,6 +7,8 @@ let result:{
     condition: string;
     H: number;
     L: number;
+    hours: [];
+    days: [];
 };
 
 export const getAPI = createAsyncThunk(
@@ -14,7 +16,7 @@ export const getAPI = createAsyncThunk(
     async function (ipAdress:string) {
         try{
             await axios
-                .get(`https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_PRIVATE_KEY}&q=${ipAdress}&days=1&aqi=no&alerts=no&lang=ru`)
+                .get(`https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_PRIVATE_KEY}&q=${ipAdress}&days=5&aqi=no&alerts=no&lang=ru`)
                 .then(({data}) => {
                     // console.log(data);
                     // console.log(ipAdress)
@@ -24,7 +26,11 @@ export const getAPI = createAsyncThunk(
                         condition: data.current.condition.text,
                         H: Math.round(data.forecast.forecastday[0].day.maxtemp_c),
                         L: Math.round(data.forecast.forecastday[0].day.mintemp_c),
+                        hours: data.forecast.forecastday[0].hour,
+                        days: data.forecast.forecastday,
+
                     };
+                    // console.log( result.hours)
                 });
         }
         catch(error){
@@ -35,35 +41,40 @@ export const getAPI = createAsyncThunk(
 export interface WeatherState {
     status: string;
     error: string | null;
+    dayOrHour: string;
     weather: {
         temp_c: number;
         city: string;
         condition: string;
         H: number;
         L: number;
+        hours: [];
+        days:[];
     }
-    favoriteCities: string [];
-    citiesCards: object;
 }
 
 const initialState: WeatherState = {
     status: '',
     error: null,
+    dayOrHour: 'hour',
     weather: {
         temp_c: 0,
         city: '',
         condition: '',
         H: 0,
         L: 0,
+        hours: [],
+        days:[],
     },
-    favoriteCities: ['moscow', 'london', 'paris'],
-    citiesCards: {},
 }
 
 export const weatherSlice = createSlice({
     name: 'weather',
     initialState,
     reducers: {
+        changeWeatherDay: (state, action) => {
+            state.dayOrHour = action.payload.day;
+        },
     },
     extraReducers: builder => {
         builder.addCase(getAPI.pending, (state: WeatherState) => {
@@ -81,6 +92,6 @@ export const weatherSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { } = weatherSlice.actions
+export const {changeWeatherDay} = weatherSlice.actions
 
 export default weatherSlice.reducer

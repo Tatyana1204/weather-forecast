@@ -5,9 +5,17 @@ import Search from "./components/search/Search";
 import WeatherBox from "./components/weatherBox/WeatherBox";
 
 const WeatherDetails = () => {
+    let time:string;
 
+    let currentTime = new Date().getHours();
+    if (currentTime > 6 && currentTime < 18) {
+        time='day';
+    }
+    else{
+        time='night';
+    }
     return (
-        <div className={s.weatherDetails}>
+        <div className={[s['weatherDetails'], s[`${time}`] ].join(" ")}>
             <Header/>
             <Search/>
             <WeatherBox/>

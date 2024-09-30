@@ -1,14 +1,16 @@
 import React, {useEffect} from 'react';
 import {Route, Routes} from 'react-router-dom';
-import WeatherDetails from "./pages/weather-details/WeatherDetails";
-import Home from "./pages/home/components/Home";
 import './styles/index.scss'
 import {getAPI} from "./store/weatherSlice";
 import {useAppDispatch} from "./hooks/hook";
-import {getAPICities} from "./store/weatherCitiesSlice";
+import Home from './pages/home/components/Home';
+import WeatherDetails from "./pages/weather-details/WeatherDetails";
+import ModalListHour from "./pages/home/components/home-modal/modal-list-hour/ModalListHour";
+import ModalListDay from "./pages/home/components/home-modal/modal-list-day/ModalListDay";
 
 function App() {
-const [ipAdress, setIpAdress] = React.useState<string>('');
+
+    const [ipAdress, setIpAdress] = React.useState<string>('');
     const dispatch = useAppDispatch();
 
     const getVisitorIP = async () => {
@@ -33,8 +35,13 @@ const [ipAdress, setIpAdress] = React.useState<string>('');
     return (
     <div className='App'>
         <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/details" element={<WeatherDetails />} />
+          <Route path="/" element={<Home/>}>
+              <Route path='/hourse' element={<ModalListHour/>}/>
+              <Route path='/day' element={<ModalListDay/>}/>
+              <Route path='*' element={<ModalListHour/>}/>
+              <Route/>
+          </Route>
+          <Route path="/details" element={<WeatherDetails/>} />
         </Routes>
     </div>
   );

@@ -5,6 +5,7 @@ import {useAppDispatch} from "../../../../hooks/hook";
 import {getAPICities, getCity} from "../../../../store/weatherCitiesSlice";
 
 const Search = () => {
+
     const [cities, setCities] = React.useState<string>('');
     const dispatch = useAppDispatch();
     useEffect(()=> {
