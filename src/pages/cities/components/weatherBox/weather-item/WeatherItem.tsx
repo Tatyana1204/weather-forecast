@@ -54,7 +54,7 @@ const WeatherItem = (props: WeatherItemProps) => {
                 </div>
                 <div className={s.weatherItemBottom}>
                 <div className={s.weatherItemText}>
-                        <span className={s.hL}>H:{props.H}&deg; L:{props.L}&deg;</span>
+                        <span className={s.hL}>H: {props.H}&deg;    L: {props.L}&deg;</span>
                         <span className={s.city}>{props.city}</span>
                     </div>
                     <span className={s.weatherDetailText}>{props.condition}</span>

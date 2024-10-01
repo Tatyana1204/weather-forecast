@@ -29,9 +29,9 @@ const ModalLinks = () => {
     }
     return (
         <div className={s.links}>
-            <button onClick={getApi} title='Найти меня'><img src={location} alt="Найти город"/></button>
-            <Link title='Выбрать другой город' to='/details'><img src={addMore} alt="add" className={s.modal_img}/></Link>
-            <Link to='/hourse'><img src={burger} alt="детали"/></Link>
+            <button onClick={getApi} title='Найти меня'><img src={location} alt="Найти меня"/></button>
+            <Link title='Детали погоды' to='/details'><img src={addMore} alt="Узнать больше" className={s.modal_img}/></Link>
+            <Link to='/cities' title='Выбрать другой город'><img src={burger} alt="Другой город"/></Link>
         </div>
     );
 };

@@ -4,7 +4,7 @@ import './styles/index.scss'
 import {getAPI} from "./store/weatherSlice";
 import {useAppDispatch} from "./hooks/hook";
 import Home from './pages/home/components/Home';
-import WeatherDetails from "./pages/weather-details/WeatherDetails";
+import WeatherDetails from "./pages/cities/WeatherDetails";
 import ModalListHour from "./pages/home/components/home-modal/modal-list-hour/ModalListHour";
 import ModalListDay from "./pages/home/components/home-modal/modal-list-day/ModalListDay";
 
@@ -41,7 +41,8 @@ function App() {
               <Route path='*' element={<ModalListHour/>}/>
               <Route/>
           </Route>
-          <Route path="/details" element={<WeatherDetails/>} />
+          <Route path="/cities" element={<WeatherDetails/>} />
+            {/*<Route path="/details" element={<WeatherDetails/>} />*/}
         </Routes>
     </div>
   );

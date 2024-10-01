@@ -9,6 +9,7 @@
     background: var(--Weather-Color-Linear-2, linear-gradient(90deg, rgba(89, 54, 180, 0.59) 0%, rgba(54, 42, 132, 0.56) 103.55%));
 }
 .modal_nav{
+  padding-top: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

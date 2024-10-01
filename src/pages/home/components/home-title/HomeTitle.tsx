@@ -15,7 +15,7 @@ const HomeTitle = () => {
                 <span className={s.city}>{temp.city}</span>
                 <span className={s.temp}>{temp.temp_c}&deg;</span>
                 <span className={s.condition}>{temp.condition}</span>
-                <span className={s.MaxMinTemp}>H:{temp.H} L:{temp.L}</span>
+                <span className={s.MaxMinTemp}>День:{temp.H}&deg;  Ночь:{temp.L}&deg;</span>
         </div>
     );
 };

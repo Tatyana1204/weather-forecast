@@ -10,7 +10,7 @@ interface Props {
 const Header = (props:Props) => {
     return (
         <div className={s.header}>
-            <Link to='/hourse' className={s.headerLink}><span>&lt; Weather</span></Link>
+            <Link to='/hourse' className={s.headerLink}><span>&lt; Выбрать</span></Link>
             <img src={logo} alt='more' />
         </div>
     );

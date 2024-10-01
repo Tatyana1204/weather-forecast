@@ -13,7 +13,7 @@ const ModalListDay = () => {
                 <ModalItem
                     condition={day.day.condition.text}
                     time={`${day.date.slice(8, 10)}.${day.date.slice(5, 7)}`}
-                    temp={day.day.avgtemp_c}
+                    temp={Math.round(day.day.avgtemp_c)}
                     key={`${day.date.slice(8, 10)}.${day.date.slice(5, 7)}`}
                 />
             )}

@@ -7,3 +7,10 @@
   overflow-x:hidden;
   background: linear-gradient(168deg, #6171ea 1.62%, rgba(67, 11, 89, 0.78) 95.72%);
 }
+@font-face {
+  font-family: 'Nunito';
+  src: url('../../src/fonts/Nunito-VariableFont_wght.ttf');
+}
+body{
+  font-family: 'Nunito', sans-serif;
+}

@@ -4,6 +4,8 @@ import s from './Search.module.scss'
 import {useAppDispatch, useAppSelector} from "../../../../hooks/hook";
 import {getAPICities, getCity} from "../../../../store/weatherCitiesSlice";
 import {getAPI} from "../../../../store/weatherSlice";
+import { Input } from "antd";
+
 
 const Search = () => {
 const loader:  string = useAppSelector(state => state.weatherCities.status);
@@ -24,12 +26,14 @@ const loader:  string = useAppSelector(state => state.weatherCities.status);
     }, [cities])
     return (
         <div className={s.search}>
-            <img src={logo} alt='search' />
-            <input
+            <Input
+                className="search_input"
+                size="large"
+                prefix={<img src={logo} alt='search' />}
                 value={cities}
-                onChange={e => {setCities(e.target.value)}}
+                onChange={(e) => {setCities(e.target.value)}}
                 type="text"
-                placeholder='Search for a city or airport'
+                placeholder='Найти по городу или аэропорту'
             />
         </div>
     );
