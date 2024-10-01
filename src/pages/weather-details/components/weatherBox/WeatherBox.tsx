@@ -8,10 +8,9 @@ import s from '../../WeatherDetails.module.scss'
 const WeatherBox = () => {
     // @ts-ignore
     const cities: [] = useAppSelector(state=> state.weatherCities.weathers);
-    const loader = useAppSelector((state)=>state.weatherCities.status)
-    const search = useAppSelector(state => state.weatherCities.search)
+    const loader:string = useAppSelector((state)=>state.weatherCities.status)
+    const search:string = useAppSelector(state => state.weatherCities.search)
 
-    // @ts-ignore
     if (loader === 'fulfilled' && cities.length > 1) {
         return (
             <div className={s.weatherBox}>
@@ -20,8 +19,8 @@ const WeatherBox = () => {
             </div>
         );
     }
-    // @ts-ignore
-    else if(search==='fulfilled' && cities.length == 1) {
+
+    else if(search==='fulfilled') {
         // @ts-ignore
         return <WeatherItem city={cities.city} H={cities.H} L={cities.L} condition={cities.condition} temp_c={cities.temp_c} key={1}/>
     }
