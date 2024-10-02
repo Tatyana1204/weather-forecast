@@ -1,37 +1,38 @@
 import React from 'react';
-import {Link} from "react-router-dom";
 import s from './Home.module.scss'
-import house from '../../../image/House.png'
+import houseDay from '../../../image/house_day.png'
+import houseNight from '../../../image/house_night.png'
+
 import { useAppSelector } from '../../../hooks/hook';
 import Loader from "../../../loader/loader";
+import HomeTitle from "./home-title/HomeTitle";
+import HomeModal from "./home-modal/HomeModal";
 
 const Home = () => {
-    const temp :{
-        temp_c: number;
-        city: string;
-        condition: string;
-        H: number;
-        L: number;
-    } = useAppSelector(state => state.weather.weather);
 
-    const loader : string = useAppSelector(state=>state.weather.status);
+ let house:string;
+ let time:string;
+ let currentTime = new Date().getHours();
+ if (currentTime > 6 && currentTime < 18) {
+     time='day';
+     house = houseDay;
+ }
+ else{
+     time='night';
+     house = houseNight
+ }
+
+ const loader : string = useAppSelector(state=>state.weather.status);
 
     if(loader === 'fulfilled'){
 
         return (
-            <div className={s.home}>
-                <div className={s.firstTemp}>
-                    <span className={s.city}>{temp.city}</span>
-                    <span className={s.temp}>{temp.temp_c}&deg;</span>
-                    <span className={s.condition}>{temp.condition}</span>
-                    <span className={s.MaxMinTemp}>H:{temp.H}  L:{temp.L}</span>
-                </div>
+            <div className={[s['home'], s[`${time}`] ].join(" ")}>
+                <HomeTitle/>
                 <div className={s.house}>
                     <img src={house} alt=""/>
                 </div>
-                <div className={s.modal}>
-                    <Link to='/details'>детали</Link>
-                </div>
+               <HomeModal/>
             </div>
         );
     }
@@ -42,7 +43,6 @@ const Home = () => {
             </div>
         )
     }
-
 };
 
 export default Home;

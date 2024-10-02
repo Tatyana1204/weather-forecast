@@ -6,7 +6,6 @@ async function getWeatherCity(ipAdress:string) {
         return axios
             .get(`https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_PRIVATE_KEY}&q=${ipAdress}&days=1&aqi=no&alerts=no&lang=ru`)
             .then(({data}) => {
-                    // console.log(data);
                     return {
                         temp_c: Math.round(data.current.temp_c),
                         city: data.location.name,
@@ -26,10 +25,8 @@ export const getCity = createAsyncThunk(
     'weatherCities/getCity',
     async function (address:string){
         try {
-            const response = await getWeatherCity(address);
-            console.log(response);
             // @ts-ignore
-            cities = response;
+            cities = await getWeatherCity(address);
         }
         catch (e){
             console.log('error:', e)
@@ -87,28 +84,25 @@ export const weatherCitiesSlice = createSlice({
     extraReducers: builder => {
         builder.addCase(getAPICities.pending, (state: WeatherState) => {
             state.status = 'loading';
-            // console.log('loading')
         })
         builder.addCase(getAPICities.fulfilled, (state: WeatherState) => {
             state.status = 'fulfilled';
             state.error = "no";
             // @ts-ignore
             state.weathers = cities;
-            // console.log('loaded')
         })
         builder.addCase(getAPICities.rejected, (state: WeatherState) => {
             state.status = 'rejected';
         })
         builder.addCase(getCity.pending, (state: WeatherState) => {
             state.search = 'loading';
-            // console.log('loading')
         })
         builder.addCase(getCity.fulfilled, (state: WeatherState) => {
             state.search = 'fulfilled';
+            state.status = '';
             // @ts-ignore
             state.weathers = cities;
-            console.log(cities, state.weathers)
-            // console.log('loaded')
+            // console.log(cities, state.weathers)
         })
         builder.addCase(getCity.rejected, (state: WeatherState) => {
             state.search =  'rejected';
