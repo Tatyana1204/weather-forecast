@@ -29,6 +29,13 @@
   line-height: 41px;
   letter-spacing: 0.274px;
 }
+.weatherItemHL {
+  padding-top: 5px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
 .hL{
   color: rgba(255, 255, 255, 0.37);
   font-size: 13px;
@@ -36,7 +43,9 @@
   font-weight: 400;
   line-height: 20px;
   letter-spacing: -0.058px;
+  text-align: start;
 }
+
 .city{
   font-size: 20px;
   font-style: normal;
@@ -46,10 +55,9 @@
 }
 
 .weatherItemBottom{
-  padding-top: 10px;
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
 }
 .weatherItemText{
@@ -62,6 +70,7 @@
   font-weight: 300;
   font-size: 15px;
   text-wrap: wrap;
+  text-align: right;
 }
 .weatherImg{
   margin-top: 10px;

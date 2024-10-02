@@ -52,11 +52,11 @@ const WeatherItem = (props: WeatherItemProps) => {
                     {/*<img src={rainImg} alt="cart"/>*/}
                     <img className={s.weatherImg} src={imageUrl} alt="погода"/>
                 </div>
+                <div className={s.weatherItemHL}>
+                    <span className={s.hL}>H: {props.H}&deg;    L: {props.L}&deg;</span>
+                </div>
                 <div className={s.weatherItemBottom}>
-                <div className={s.weatherItemText}>
-                        <span className={s.hL}>H: {props.H}&deg;    L: {props.L}&deg;</span>
-                        <span className={s.city}>{props.city}</span>
-                    </div>
+                    <span className={s.city}>{props.city}</span>
                     <span className={s.weatherDetailText}>{props.condition}</span>
                 </div>
             </div>
