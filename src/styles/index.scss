@@ -5,11 +5,14 @@
   max-width: 390px;
   max-height: 844px;
   overflow-x:hidden;
-  background: linear-gradient(168deg, #6171ea 1.62%, rgba(67, 11, 89, 0.78) 95.72%);
+  background: linear-gradient(168deg, #6f38fa 1.62%, rgba(67, 11, 89, 0.78) 95.72%);
+}
+::-webkit-scrollbar {
+  width: 0;
 }
 @font-face {
   font-family: 'Nunito';
-  src: url('../../src/fonts/Nunito-VariableFont_wght.ttf');
+  src: url('../font/Nunito-VariableFont_wght.ttf');
 }
 body{
   font-family: 'Nunito', sans-serif;

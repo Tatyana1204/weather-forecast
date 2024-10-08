@@ -6,8 +6,10 @@
     animation: rotate 2s linear infinite;
 }
 .loader{
+    color: #FFF;
     padding-top: 30px;
     width: 100%;
+    height: 844px;
     display: flex;
     flex-direction: column;
     justify-content: center;

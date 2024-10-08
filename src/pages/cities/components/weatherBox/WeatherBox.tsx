@@ -2,7 +2,7 @@ import WeatherItem from "./weather-item/WeatherItem";
 import {useAppSelector} from "../../../../hooks/hook";
 import Loader from "../../../../loader/loader";
 import React from "react";
-import s from '../../WeatherDetails.module.scss'
+import s from '../../WeatherCities.module.scss'
 
 
 const WeatherBox = () => {

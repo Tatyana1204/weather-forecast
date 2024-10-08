@@ -1,15 +1,18 @@
 .modal{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
     margin-top: -45px;
-    padding-bottom: 30px;
     width: 100%;
-    height: 325px;
+    height: 390px;
     flex-shrink: 0;
     border-radius: 44px 44px 0 0;
     backdrop-filter: blur(15px);
     background: var(--Weather-Color-Linear-2, linear-gradient(90deg, rgba(89, 54, 180, 0.59) 0%, rgba(54, 42, 132, 0.56) 103.55%));
+
 }
 .modal_nav{
-  padding-top: 20px;
+  padding-top: 30px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -30,7 +33,7 @@
 }
 .modal_img{
   width: 258px;
-  height: 100px;
+  height: 110px;
 }
 .links{
   width: 100%;
