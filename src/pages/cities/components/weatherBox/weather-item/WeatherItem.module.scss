@@ -1,11 +1,14 @@
 .weatherItem{
   margin-top: 20px;
   width: 100%;
-  height: 190px;
+  max-height: 200px;
+  height: auto;
   position: relative;
   background-image: url('../../../../../image/rectangle.png');
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
+  padding-bottom: 20px;
+  border-radius: 30px;
 }
 .weatherItemData{
   display: flex;
