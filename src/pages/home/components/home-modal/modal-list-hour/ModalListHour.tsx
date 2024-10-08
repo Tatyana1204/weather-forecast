@@ -9,7 +9,7 @@ const ModalListHour = () => {
     const hours : [] = useAppSelector(state=> state.weather.weather.hours);
 
     // @ts-ignore
-    const nowHours : [] = hours.filter((hour: {condition:{icon:string}, time:string, temp_c:string }) => {
+    const nowHours : [] = hours.filter((hour: {condition:{text:string}, time:string, temp_c:string, icon:string}) => {
         if (Number(hour.time.slice(11, 13)) >= (currentTime - 2)) {
             return hour;
         }
@@ -19,12 +19,13 @@ const ModalListHour = () => {
     })
     return (
         <div className={s.modal_list}>
-            {nowHours.map((hour: {condition:{text:string}, time:string, temp_c:number }) =>
+            {nowHours.map((hour: {condition:{text:string, icon: string}, time:string, temp_c:number}) =>
                 <ModalItem
                     condition={hour.condition.text}
                     time={hour.time.slice(11)}
                     temp ={Math.round(hour.temp_c)}
                     key={hour.time.slice(11, 13)}
+                    icon={hour.condition.icon}
                 />
             )}
         </div>

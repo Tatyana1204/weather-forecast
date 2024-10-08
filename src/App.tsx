@@ -4,9 +4,10 @@ import './styles/index.scss'
 import {getAPI} from "./store/weatherSlice";
 import {useAppDispatch} from "./hooks/hook";
 import Home from './pages/home/components/Home';
-import WeatherDetails from "./pages/cities/WeatherDetails";
 import ModalListHour from "./pages/home/components/home-modal/modal-list-hour/ModalListHour";
 import ModalListDay from "./pages/home/components/home-modal/modal-list-day/ModalListDay";
+import WeatherCities from "./pages/cities/WeatherCities";
+import Details from "./pages/details/Details";
 
 function App() {
 
@@ -36,13 +37,18 @@ function App() {
     <div className='App'>
         <Routes>
           <Route path="/" element={<Home/>}>
-              <Route path='/hourse' element={<ModalListHour/>}/>
+              <Route path='/' element={<ModalListHour/>}/>
               <Route path='/day' element={<ModalListDay/>}/>
               <Route path='*' element={<ModalListHour/>}/>
               <Route/>
           </Route>
-          <Route path="/cities" element={<WeatherDetails/>} />
-            {/*<Route path="/details" element={<WeatherDetails/>} />*/}
+          <Route path="/cities" element={<WeatherCities/>} />
+            <Route path="/details" element={<Details />} >
+                <Route path='/details/' element={<ModalListHour/>}/>
+                <Route path='/details/day' element={<ModalListDay/>}/>
+                <Route path='*' element={<ModalListHour/>}/>
+            </Route>
+            <Route path="*" element={<Home/>}/>
         </Routes>
     </div>
   );

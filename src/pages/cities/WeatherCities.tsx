@@ -1,10 +1,10 @@
 import React from 'react';
-import s from './WeatherDetails.module.scss'
+import s from './WeatherCities.module.scss'
 import Header from "./components/header/Header";
 import Search from "./components/search/Search";
 import WeatherBox from "./components/weatherBox/WeatherBox";
 
-const WeatherDetails = () => {
+const WeatherCities = () => {
     let time:string;
 
     let currentTime = new Date().getHours();
@@ -24,4 +24,4 @@ const WeatherDetails = () => {
     );
 };
 
-export default WeatherDetails;
+export default WeatherCities;
