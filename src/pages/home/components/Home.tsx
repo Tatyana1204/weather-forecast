@@ -30,7 +30,7 @@ const Home = () => {
             <div className={[s['home'], s[`${time}`] ].join(" ")}>
                 <HomeTitle/>
                 <div className={s.house}>
-                    <img src={house} alt=""/>
+                    <img className={s.homeImg} src={house} alt=""/>
                 </div>
                <HomeModal/>
             </div>

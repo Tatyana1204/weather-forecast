@@ -8,9 +8,11 @@ import ModalListHour from "./pages/home/components/home-modal/modal-list-hour/Mo
 import ModalListDay from "./pages/home/components/home-modal/modal-list-day/ModalListDay";
 import WeatherCities from "./pages/cities/WeatherCities";
 import Details from "./pages/details/Details";
+import useWindowSize from './hooks/useWindowSize';
 
 function App() {
-
+const size = useWindowSize();
+console.log(size);
     const [ipAdress, setIpAdress] = React.useState<string>('');
     const dispatch = useAppDispatch();
 
@@ -32,26 +34,37 @@ function App() {
                 }
             );
     }, [ipAdress])
-
-    return (
-    <div className='App'>
-        <Routes>
-          <Route path="/" element={<Home/>}>
-              <Route path='/' element={<ModalListHour/>}/>
-              <Route path='/day' element={<ModalListDay/>}/>
-              <Route path='*' element={<ModalListHour/>}/>
-              <Route/>
-          </Route>
-          <Route path="/cities" element={<WeatherCities/>} />
-            <Route path="/details" element={<Details />} >
-                <Route path='/details/' element={<ModalListHour/>}/>
-                <Route path='/details/day' element={<ModalListDay/>}/>
-                <Route path='*' element={<ModalListHour/>}/>
-            </Route>
-            <Route path="*" element={<Home/>}/>
-        </Routes>
-    </div>
-  );
+    if(size[0] <= 430) {
+        return (
+            <div className='App'>
+                <Routes>
+                    <Route path="/" element={<Home/>}>
+                        <Route path='/' element={<ModalListHour/>}/>
+                        <Route path='/day' element={<ModalListDay/>}/>
+                        <Route path='*' element={<ModalListHour/>}/>
+                        <Route/>
+                    </Route>
+                    <Route path="/cities" element={<WeatherCities/>}/>
+                    <Route path="/details" element={<Details/>}>
+                        <Route path='/details/' element={<ModalListHour/>}/>
+                        <Route path='/details/day' element={<ModalListDay/>}/>
+                        <Route path='*' element={<ModalListHour/>}/>
+                    </Route>
+                    <Route path="*" element={<Home/>}/>
+                </Routes>
+            </div>
+        );
+    }
+    else {
+        return (
+            <div className='appDesc'>
+                <div className='modal'>
+                    <span>К сожалению, сайт предназначен для мобильных устройств.</span>
+                    <span>Перейдите в мобильную версию</span>
+                </div>
+            </div>
+        )
+    }
 }
 
 export default App;
