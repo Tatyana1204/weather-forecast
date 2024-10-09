@@ -15,7 +15,7 @@ async function getWeatherCity(ipAdress: string) {
           H: Math.round(data.forecast.forecastday[0].day.maxtemp_c),
           L: Math.round(data.forecast.forecastday[0].day.mintemp_c),
         };
-      });
+      })
   } catch (error) {
     console.log("NO city: ", error);
     return null;
@@ -50,11 +50,9 @@ export const getAPICities = createAsyncThunk(
         // @ts-ignore
         cities = results.map((city) => {
           if (city.status === "fulfilled") {
-            // console.log(city.value)
             return city.value;
           }
         });
-        // console.log(citiesResult);
       });
     } catch (error) {
       console.log("NO cities ", Error);
@@ -101,7 +99,6 @@ export const weatherCitiesSlice = createSlice({
       state.status = "";
       // @ts-ignore
       state.weathers = cities;
-      // console.log(cities, state.weathers)
     });
     builder.addCase(getCity.rejected, (state: WeatherState) => {
       state.search = "rejected";
@@ -109,7 +106,6 @@ export const weatherCitiesSlice = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
-export const {} = weatherCitiesSlice.actions;
+// export const {} = weatherCitiesSlice.actions;
 
 export default weatherCitiesSlice.reducer;

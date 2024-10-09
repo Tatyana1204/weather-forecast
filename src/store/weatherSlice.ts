@@ -34,8 +34,6 @@ export const getAPI = createAsyncThunk(
           `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_PRIVATE_KEY}&q=${ipAdress}&days=5&aqi=yes&alerts=no&lang=ru`,
         )
         .then(({ data }) => {
-          // console.log(data);
-          // console.log(ipAdress)
           result = {
             temp_c: Math.round(data.current.temp_c),
             city: data.location.name,
@@ -45,25 +43,21 @@ export const getAPI = createAsyncThunk(
             hours: data.forecast.forecastday[0].hour,
             days: data.forecast.forecastday,
             air_quality: data.current.air_quality["us-epa-index"],
-            uv: data.current.uv,
+            uv: `${Math.round(data.current.uv)}`,
             sunrise: data.forecast.forecastday[0].astro.sunrise,
             sunset: data.forecast.forecastday[0].astro.sunset,
-            feels_like: String(Math.round(data.current.feelslike_c) + "°"),
-            humidity: data.current.humidity + "%",
-            dewPoint: data.current.dewpoint_c + "°",
-            visibility: data.current.vis_km + " км.",
-            precipitationAmount: data.current.precip_mm + " мм.",
+            feels_like:`${Math.round(data.current.feelslike_c)}°`,
+            humidity: `${data.current.humidity}%`,
+            dewPoint: `${data.current.dewpoint_c}°`,
+            visibility: `${data.current.vis_km} км.`,
+            precipitationAmount: `${data.current.precip_mm} мм.`,
             precipitationAmount_tm:
-              data.forecast.forecastday[1].day.totalprecip_mm + " мм.",
+              `${data.forecast.forecastday[1].day.totalprecip_mm} мм.`,
             icon: data.current.condition.icon,
-            pressure: String(
-              Math.round(data.current.pressure_mb * 0.750063755419211) + " мм.",
-            ),
-            wind: String(Math.round(data.current.wind_kph / 3.6) + "м/с"),
-            windDegree:
-              data.current.wind_degree + "°   " + data.current.wind_dir,
+            pressure: `${Math.round(data.current.pressure_mb * 0.750063755419211)} мм.`,
+            wind: `${Math.round(data.current.wind_kph / 3.6)} м/с`,
+            windDegree: `${data.current.wind_degree}°   ${data.current.wind_dir}`,
           };
-          // console.log( result.hours)
         });
     } catch (error) {
       console.log("NO IP: ", Error);
@@ -147,7 +141,6 @@ export const weatherSlice = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
-export const {} = weatherSlice.actions;
+// export const {} = weatherSlice.actions;
 
 export default weatherSlice.reducer;

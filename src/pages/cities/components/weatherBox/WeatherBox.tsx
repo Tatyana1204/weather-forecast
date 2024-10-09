@@ -35,8 +35,15 @@ const WeatherBox = () => {
     );
   } else if (search === "fulfilled") {
     // @ts-ignore
-    return (<WeatherItem city={cities.city} H={cities.H} L={cities.L} condition={cities.condition} temp_c={cities.temp_c} key={1}/>);
-  } else {
+    if(cities.city) {
+      // @ts-ignore
+      return (<WeatherItem city={cities.city} H={cities.H} L={cities.L} condition={cities.condition} temp_c={cities.temp_c} key={1}/>);
+    }
+    else{
+      return (<div className={s.weatherError}>По вашему запросу ничего не найдено :( </div>)
+    }
+    }
+     else {
     return (
       <div>
         <Loader />
