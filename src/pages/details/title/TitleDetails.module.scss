@@ -1,17 +1,17 @@
-.link_modal :hover{
+.link_modal :hover {
   color: var(--Label-Dark-Primary, rgba(255, 255, 255, 0.91));
   font-weight: 500;
 }
-.link_modal span{
+.link_modal span {
   padding-top: 20px;
   color: var(--Label-Dark-Primary, rgba(255, 255, 255, 0.68));
   font-weight: 300;
   font-size: 18px;
 }
-.link_modal{
+.link_modal {
   text-decoration: none;
 }
-.title{
+.title {
   padding-top: 20px;
   display: flex;
   flex-direction: column;

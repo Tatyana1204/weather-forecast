@@ -1,18 +1,6 @@
-//.ant-input css-dev-only-do-not-override-ccdg5a{
-//  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) inset;
-//  background: linear-gradient(168deg, rgba(60, 52, 142, 0.51) 1.62%, rgba(110, 19, 149, 0.83) 95.72%);
-//  width: calc(100% - 30px);
-//  font-size: 14px;
-//  border: none;
-//  color: #fff;
-//}
-//:where(.css-dev-only-do-not-override-ccdg5a).ant-input-outlined {
-//  background: linear-gradient(168deg, rgba(60, 52, 142, 0.51) 1.62%, rgba(110, 19, 149, 0.83) 95.72%);
-//  border-width: 1px;
-//  border-style: solid;
-//  border-color: #d9d9d9;
-//}
- input :active, :hover, :focus {
+input :active,
+:hover,
+:focus {
   outline: 0;
   outline-offset: 0;
 }
