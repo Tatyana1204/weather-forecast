@@ -1,27 +1,32 @@
-@import '~normalize.css';
+@import "~normalize.css";
 ::-webkit-scrollbar {
   width: 0;
 }
-.App{
+.App {
   max-width: 430px;
   max-height: 932px;
-  overflow-x:hidden;
+  overflow-x: hidden;
 }
 @font-face {
-  font-family: 'Nunito';
-  src: url('../font/Nunito-VariableFont_wght.ttf');
+  font-family: "Nunito";
+  src: url("../font/Nunito-VariableFont_wght.ttf");
 }
-body{
-  background: linear-gradient(168deg, #6f38fa 1.62%, rgba(67, 11, 89, 0.78) 95.72%) no-repeat;
-  font-family: 'Nunito', sans-serif;
+body {
+  background: linear-gradient(
+      168deg,
+      #6f38fa 1.62%,
+      rgba(67, 11, 89, 0.78) 95.72%
+    )
+    no-repeat;
+  font-family: "Nunito", sans-serif;
 }
-.appDesc{
+.appDesc {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.modal{
+.modal {
   display: flex;
   flex-direction: column;
   justify-content: center;
